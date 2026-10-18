@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eee8e2">
+<title>DAY6 · My Little Phone</title>
+<style>
+:root{--paper:#f3eee8;--ink:#29262c;--muted:#756e70;--rose:#d5a5a0;--blue:#8a9dbd;--green:#7f9d89;--gold:#d5b77f;--lav:#b4a2c9;--line:#e3d9d2}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#e6dcd8,#dce2e9);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);min-height:100vh;display:grid;place-items:center;padding:18px}
+.phone{width:min(390px,100%);height:min(820px,calc(100dvh - 36px));min-height:620px;border:8px solid #292a30;border-radius:42px;background:var(--paper);overflow:hidden;box-shadow:0 20px 55px #27232a35;position:relative;display:flex;flex-direction:column}
+.status{height:42px;padding:12px 23px 4px;display:flex;justify-content:space-between;font-weight:700;font-size:14px;flex-shrink:0}.status-right{letter-spacing:2px}
+.dynamic{width:92px;height:24px;background:#191a1f;border-radius:18px;position:absolute;top:7px;left:50%;transform:translateX(-50%)}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px 14px}.brand{font-size:12px;letter-spacing:2px;color:var(--muted)}.mini{border:0;border-radius:99px;padding:8px 11px;background:#e4d5d2;color:#554348}
+main{flex:1;overflow:auto;padding:0 17px 18px}.wallpaper{background:linear-gradient(145deg,#e4d5d2,#f4e8dd 60%,#cbd6d7);border-radius:24px;padding:19px;margin-bottom:17px;min-height:125px;display:flex;flex-direction:column;justify-content:space-between}.wallpaper small{letter-spacing:2px;font-size:10px;color:#66545a}.wallpaper h1{font-size:28px;margin:9px 0 2px;letter-spacing:-1px}.wallpaper p{font-size:12px;margin:0;color:#66545a}
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 10px;padding:7px 4px 19px}.app{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink);font-size:12px}.app-icon{width:55px;height:55px;border-radius:17px;display:grid;place-items:center;color:white;font-size:24px;box-shadow:inset 0 1px 0 #ffffff55,0 4px 10px #3d303015}.app:active .app-icon{transform:scale(.94)}.messages{background:var(--blue)}.music{background:var(--green)}.photos{background:var(--rose)}.calls{background:var(--gold)}.notes{background:var(--lav)}.about{background:#aaa6a0}
+.dock{margin:0 13px 13px;background:#ffffff80;border:1px solid #ffffff8c;border-radius:23px;display:flex;justify-content:space-around;padding:11px 8px;flex-shrink:0}.dock button{border:0;background:transparent;font-size:21px}
+.screen{display:none;position:absolute;inset:0;background:var(--paper);z-index:5;flex-direction:column}.screen.active{display:flex}.screen-top{padding:50px 19px 15px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line)}.back{border:0;background:#e4d5d2;color:#554348;border-radius:12px;padding:9px 12px;font-size:14px}.screen-title{font-weight:750;font-size:21px}.screen-body{padding:16px 18px 30px;overflow:auto;flex:1}.sub{color:var(--muted);font-size:13px}.item{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}.avatar{width:42px;height:42px;border-radius:50%;background:#e4d5d2;display:grid;place-items:center;font-weight:700;color:#66545a;flex-shrink:0}.item strong{display:block;font-size:14px;margin-bottom:4px}.item p{margin:0;font-size:12px;color:var(--muted);line-height:1.45}.album{background:linear-gradient(135deg,#9aafa2,#e3d5c8);border-radius:22px;aspect-ratio:1;display:grid;place-items:center;font-size:48px;margin:4px 0 16px}.field{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px;background:#fffaf6;font:inherit;color:var(--ink);margin:7px 0}.btn{border:0;border-radius:13px;padding:11px 14px;background:#554b52;color:white;font-weight:650}.note-card{background:#fffaf6;border:1px solid var(--line);border-radius:15px;padding:13px;margin:10px 0}.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.photo{aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg,#d5a5a0,#e9d9c8);display:grid;place-items:center;text-align:center;padding:12px;font-size:12px;color:#554348}.photo:nth-child(2){background:linear-gradient(135deg,#8a9dbd,#d7dfe7)}.photo:nth-child(3){background:linear-gradient(135deg,#7f9d89,#d9e2d8)}.photo:nth-child(4){background:linear-gradient(135deg,#d5b77f,#f0e5cb)}.home-indicator{width:105px;height:4px;border-radius:9px;background:#24242a;margin:0 auto 8px;flex-shrink:0}
+@media(max-height:700px){.phone{height:calc(100dvh - 18px);min-height:0}.status{height:34px}.screen-top{padding-top:42px}}
+</style>
+</head>
+<body>
+<div class="phone" role="application" aria-label="DAY6 가상 휴대폰">
+  <div class="status"><span id="clock">9:41</span><span class="status-right">▮▮▮ ◉ ▰</span></div><div class="dynamic"></div>
+  <header><div><div class="brand">MY LITTLE UNIVERSE</div><strong>DAY6 PHONE ♡</strong></div><button class="mini" onclick="openApp('about')">INFO</button></header>
+  <main>
+    <section class="wallpaper"><div><small>MY FAVORITE BAND</small><h1>DAY6 ♡</h1><p>우리의 작은 음악 우주</p></div><small>YOUNG K · SUNGJIN · WONPIL · DOWOON</small></section>
+    <div class="apps">
+      <button class="app" onclick="openApp('messages')"><span class="app-icon messages">☏</span>문자</button>
+      <button class="app" onclick="openApp('music')"><span class="app-icon music">♫</span>음악</button>
+      <button class="app" onclick="openApp('photos')"><span class="app-icon photos">▧</span>사진</button>
+      <button class="app" onclick="openApp('calls')"><span class="app-icon calls">↗</span>통화 기록</button>
+      <button class="app" onclick="openApp('notes')"><span class="app-icon notes">✎</span>메모</button>
+      <button class="app" onclick="openApp('about')"><span class="app-icon about">⚙</span>정보</button>
+    </div>
+  </main>
+  <div class="dock"><button onclick="openApp('messages')" aria-label="문자">☏</button><button onclick="openApp('music')" aria-label="음악">♫</button><button onclick="openApp('photos')" aria-label="사진">▧</button><button onclick="openApp('notes')" aria-label="메모">✎</button></div>
+  <div class="home-indicator"></div>
+  <section class="screen" id="messages"><div class="screen-top"><button class="back" onclick="home()">‹ 홈</button><div class="screen-title">문자</div></div><div class="screen-body"><p class="sub">나만의 팬심 문자함 · 가상 메시지</p><div class="item"><div class="avatar">D6</div><div><strong>DAY6 fan diary</strong><p>오늘도 노래 덕분에 하루를 버텼어 ♡</p></div></div><div class="item"><div class="avatar">☾</div><div><strong>나에게 보내는 문자</strong><p>좋아하는 마음을 오래오래 간직하기.</p></div></div><p class="sub">이 화면의 문자는 예시로 만든 가상 내용이야.</p></div></section>
+  <section class="screen" id="music"><div class="screen-top"><button class="back" onclick="home()">‹ 홈</button><div class="screen-title">음악</div></div><div class="screen-body"><div class="album">♫</div><p class="sub">MY DAY6 PLAYLIST</p><h2 style="margin:5px 0">나의 DAY6 플레이리스트</h2><p class="sub">좋아하는 곡을 적어 두는 공간</p><div class="item"><div class="avatar">♪</div><div><strong>한 페이지가 될 수 있게</strong><p>DAY6 · favorite track</p></div></div><div class="item"><div class="avatar">♫</div><div><strong>예뻤어</strong><p>DAY6 · favorite track</p></div></div><div class="item"><div class="avatar">♡</div><div><strong>내 최애곡</strong><p>아래 메모에 나만의 곡을 적어 보세요.</p></div></div><p class="sub">음원은 자동 재생되지 않아. 실제 음악은 공식 스트리밍 서비스에서 들어 줘.</p></div></section>
+  <section class="screen" id="photos"><div class="screen-top"><button class="back" onclick="home()">‹ 홈</button><div class="screen-title">사진</div></div><div class="screen-body"><p class="sub">MY LITTLE GALLERY · 장식용 플레이스홀더</p><div class="photo-grid"><div class="photo">♡<br>favorite memory</div><div class="photo">☁<br>blue day</div><div class="photo">♫<br>concert night</div><div class="photo">✦<br>our universe</div></div><p class="sub" style="margin-top:14px">사진 칸은 예시야. 공개 전에 사용 권한이 있는 사진으로 바꾸는 걸 추천해.</p></div></section>
+  <section class="screen" id="calls"><div class="screen-top"><button class="back" onclick="home()">‹ 홈</button><div class="screen-title">통화 기록</div></div><div class="screen-body"><p class="sub">가상 통화 기록 · 실제 전화가 걸리지 않아</p><div class="item"><div class="avatar">↙</div><div><strong>DAY6 fan club</strong><p>받은 전화 · 어제 오후 8:16</p></div></div><div class="item"><div class="avatar">↗</div><div><strong>나의 음악 친구</strong><p>발신 전화 · 월요일 오후 6:30</p></div></div><div class="item"><div class="avatar">♡</div><div><strong>추억 저장소</strong><p>부재중 전화 · 지난주</p></div></div></div></section>
+  <section class="screen" id="notes"><div class="screen-top"><button class="back" onclick="home()">‹ 홈</button><div class="screen-title">메모</div></div><div class="screen-body"><p class="sub">이 기기에서 메모를 적고 저장할 수 있어.</p><input id="noteTitle" class="field" placeholder="메모 제목 (예: 나의 최애곡)"><textarea id="noteText" class="field" rows="5" placeholder="DAY6에게 하고 싶은 말, 좋아하는 가사에 대한 내 생각, 콘서트 추억..."></textarea><button class="btn" onclick="saveNote()">메모 저장하기</button><div id="savedNotes"></div><p class="sub">저장한 메모는 이 브라우저에만 저장돼. 민감한 개인정보는 적지 말아 줘.</p></div></section>
+  <section class="screen" id="about"><div class="screen-top"><button class="back" onclick="home()">‹ 홈</button><div class="screen-title">정보</div></div><div class="screen-body"><h2>DAY6 PHONE ♡</h2><p>나의 음악 취향으로 꾸미는 비공식 팬메이드 가상 휴대폰.</p><div class="note-card">이 사이트는 팬이 꾸미기 위한 비공식 예시이며 DAY6 또는 소속사와 제휴한 사이트가 아니야.</div><p class="sub">사진이나 로고를 추가할 때는 공개 사용 권한을 확인해 줘.</p></div></section>
+</div>
+<script>
+function openApp(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function home(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'))}
+function saveNote(){const t=document.getElementById('noteTitle').value.trim()||'제목 없는 메모';const v=document.getElementById('noteText').value.trim();if(!v){alert('메모 내용을 먼저 적어 줘!');return}let notes=JSON.parse(localStorage.getItem('day6phone-notes')||'[]');notes.unshift({t,v});localStorage.setItem('day6phone-notes',JSON.stringify(notes));document.getElementById('noteTitle').value='';document.getElementById('noteText').value='';renderNotes()}
+function renderNotes(){const el=document.getElementById('savedNotes');if(!el)return;const notes=JSON.parse(localStorage.getItem('day6phone-notes')||'[]');el.innerHTML=notes.map(n=>'<div class="note-card"><strong></strong><p></p></div>').join('');[...el.children].forEach((card,i)=>{card.querySelector('strong').textContent=notes[i].t;card.querySelector('p').textContent=notes[i].v})}
+function tick(){const d=new Date();document.getElementById('clock').textContent=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0')}
+tick();setInterval(tick,30000);renderNotes();
+</script>
+</body>
+</html>
